@@ -1,0 +1,10 @@
+title = "API Security Lab secret scanning"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "lab-fake-api-key"
+description = "Deliberately fake lab key, never a usable credential"
+regex = '''\blab_fake_[A-Za-z0-9]{32}\b'''
+keywords = ["lab_fake_"]
