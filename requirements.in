@@ -1,0 +1,6 @@
+# Direct application and test dependencies. requirements.txt also pins transitives.
+fastapi==0.162.0
+uvicorn==0.54.0
+PyJWT==2.15.1
+requests==2.34.2
+pytest==9.1.1
