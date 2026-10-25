@@ -1,0 +1,21 @@
+rules:
+  - id: lab-formatted-search-sql
+    languages: [python]
+    severity: ERROR
+    message: Search input is formatted into SQL. Bind values with placeholders.
+    pattern-regex: 'f"WHERE owner_id = .*\{q\}'
+  - id: lab-weak-jwt-secret
+    languages: [python]
+    severity: ERROR
+    message: A public signing key allows JWT forgery. Load a random runtime secret.
+    pattern: jwt_secret = "secret123"
+  - id: lab-disabled-jwt-expiry
+    languages: [python]
+    severity: ERROR
+    message: JWT expiry verification is disabled.
+    pattern: 'jwt.decode(..., options={..., "verify_exp": False, ...}, ...)'
+  - id: lab-committed-fake-key
+    languages: [python]
+    severity: WARNING
+    message: The synthetic lab API key is present in source.
+    pattern-regex: '\blab_fake_[A-Za-z0-9]{32}\b'
